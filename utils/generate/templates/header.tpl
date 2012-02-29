@@ -1,0 +1,11 @@
+#ifndef GUARD_%GUARD_NAME%_INCLUDED
+#define GUARD_%GUARD_NAME%_INCLUDED
+
+namespace evipp {
+%NAMESPACE_BEGIN%
+
+%NAMESPACE_END%
+}
+
+#endif //GUARD_%GUARD_NAME%_INCLUDED
+
