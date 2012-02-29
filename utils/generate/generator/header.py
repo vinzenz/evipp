@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import os
+import os, sys
 
 def _get_my_directory():
 	return os.path.dirname(__file__)
@@ -43,20 +43,31 @@ def _build_namespace_begin(sections):
 	namespaces = []
 	for section in sections[:-1]:
 		namespaces.append( "namespace %s {" % section )
-	return namespaces
+	return '\n'.join(namespaces)
 
-def _generate_namespace_end(sections):
+def _build_namespace_end(sections):
 	return "}" * (len(sections) - 1)
 
 
 def _format_file(sections):
-	pass
+	tplf = open( _get_template_file_path(), 'r' )
+	tpl = tplf.read()
+	tplf.close()
+
+	tpl = tpl.replace('%GUARD_NAME%', _build_include_guard(sections) )
+	tpl = tpl.replace('%NAMESPACE_BEGIN%', _build_namespace_begin(sections) )
+	tpl = tpl.replace('%NAMESPACE_END%', _build_namespace_end(sections) )
+
+	hdrf = open(_build_target_file_path(sections), 'w')
+	hdrf.write(tpl)
+	hdrf.close()
+
 
 def generate(path):
 	"""
 		Generates a header file from the passed path information
 	"""
 	sections = path.split('/')
+	_format_file(sections)
 	
-print _create_target_directory(["string", "detail", "foo"])
-
+generate(sys.argv[1])
