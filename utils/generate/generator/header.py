@@ -2,36 +2,12 @@
 
 import os, sys
 
-def _get_my_directory():
-	return os.path.dirname(__file__)
+from utils import get_template, find_git, create_target_directory, build_target_file_path
 
-
-def _get_template_file_path():
-	return os.path.join( _get_my_directory(), "../templates/header.tpl")
-
-def _find_git():
-	path = _get_my_directory()
-	while True:
-		test = os.path.join(path, ".git")
-		if os.path.exists( test ):
-			return path
-		if os.path.ismount( path ):
-			raise Exception("Couldn't find .git folder")
-		path = os.path.abspath( os.path.join( path, ".." ) )
-	
+EVIPP_HEADER_GENERATOR_BASE_DIR="include/evipp"
 
 def _create_target_directory(sections):
-	base_path = os.path.join( _find_git(), "include/evipp")
-	for section in sections[:-1]:
-		base_path = os.path.join( base_path, section )
-		if not os.path.exists( base_path ):
-			os.mkdir( base_path, 0644 )
-	return base_path	
-
-def _build_target_file_path(sections):
-	base_path = _create_target_directory(sections)
-	return os.path.join( base_path, "%s.hpp" % sections[-1] )
-			
+	return create_target_directory(sections, EVIPP_HEADER_GENERATOR_BASE_DIR)
 
 def _build_include_guard(sections):
 	guard = ""
@@ -50,7 +26,7 @@ def _build_namespace_end(sections):
 
 
 def _format_file(sections):
-	tplf = open( _get_template_file_path(), 'r' )
+	tplf = open( get_template('header'), 'r' )
 	tpl = tplf.read()
 	tplf.close()
 
@@ -58,7 +34,7 @@ def _format_file(sections):
 	tpl = tpl.replace('%NAMESPACE_BEGIN%', _build_namespace_begin(sections) )
 	tpl = tpl.replace('%NAMESPACE_END%', _build_namespace_end(sections) )
 
-	hdrf = open(_build_target_file_path(sections), 'w')
+	hdrf = open(build_target_file_path(sections, 'hpp', EVIPP_HEADER_GENERATOR_BASE_DIR), 'w')
 	hdrf.write(tpl)
 	hdrf.close()
 
