@@ -3,7 +3,7 @@
 
 #include <evipp/preprocessor/todo.hpp>
 
-#define EVIPP_TODO(x) EVIPP_MESSAGE("TODO:" x)
+#define EVIPP_TODO(x) EVIPP_MESSAGE("TODO: " x)
 
 #endif //GUARD_PREPROCESSOR_TODO_HPP_INCLUDED
 

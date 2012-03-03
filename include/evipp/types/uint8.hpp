@@ -1,10 +1,12 @@
 #ifndef GUARD_TYPES_UINT8_HPP_INCLUDED
 #define GUARD_TYPES_UINT8_HPP_INCLUDED
 
+#include <boost/cstdint.hpp>
+
 namespace evipp {
 namespace types {
 
-typedef unsigned char uint8;
+typedef boost::uint8_t uint8;
 
 }}
 
