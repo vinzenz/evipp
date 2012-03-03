@@ -2,13 +2,7 @@
 #define GUARD_CONFIG_COMPILER_MSVC_HPP_INCLUDED
 
 #define EVIPP_COMPILER_MSVC
-
-namespace evipp {
-namespace config {
-namespace compiler {
-
-
-}}}
+#define EVIPP_COMPILER_HAS_PRAGMA
+#define EVIPP_PRAGMA(x) __pragma(x)
 
 #endif //GUARD_CONFIG_COMPILER_MSVC_HPP_INCLUDED
-

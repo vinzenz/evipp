@@ -6,7 +6,7 @@
 namespace evipp {
 namespace types {
 
-#pragma EVIPP_MESSAGE("TODO: Fix typedef")
+EVIPP_MESSAGE("TODO: Fix typedef")
 
 typedef short int16;
 

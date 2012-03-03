@@ -4,6 +4,7 @@
 namespace evipp {
 namespace types {
 
+typedef char int8;
 
 }}
 

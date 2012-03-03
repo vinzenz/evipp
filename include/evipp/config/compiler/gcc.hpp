@@ -1,12 +1,7 @@
 #ifndef GUARD_CONFIG_COMPILER_GCC_HPP_INCLUDED
 #define GUARD_CONFIG_COMPILER_GCC_HPP_INCLUDED
 
-namespace evipp {
-namespace config {
-namespace compiler {
-
-
-}}}
+#error "Compiler has not yet been set up"
 
 #endif //GUARD_CONFIG_COMPILER_GCC_HPP_INCLUDED
 

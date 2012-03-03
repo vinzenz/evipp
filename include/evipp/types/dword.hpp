@@ -1,9 +1,12 @@
 #ifndef GUARD_TYPES_DWORD_HPP_INCLUDED
 #define GUARD_TYPES_DWORD_HPP_INCLUDED
 
+#include <evipp/types/uint32.hpp>
+
 namespace evipp {
 namespace types {
 
+typedef uint32 dword; 
 
 }}
 

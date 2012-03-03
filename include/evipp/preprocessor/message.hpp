@@ -1,13 +1,14 @@
 #ifndef GUARD_PREPROCESSOR_MESSAGE_HPP_INCLUDED
 #define GUARD_PREPROCESSOR_MESSAGE_HPP_INCLUDED
 
-#include <evipp/config/compiler.hpp>
+#include <evipp/preprocessor/pragma.hpp>
+#include <evipp/preprocessor/stringize.hpp>
 
-#if defined(EVIPP_COMPILER_MSVC)
-#define EVIPP_MESSAGE(x) message("")
-#else
-#error "Please set up a way to print a message to the compiler output"
-#endif
+#define EVIPP_LINE EVIPP_STRINGIZE(__LINE__)
+#define EVIPP_LOCATION "[" __FILE__ ":" EVIPP_LINE "] MSG: "
+#define EVIPP_FILE_LINE_STRING(x) EVIPP_LOCATION##x
+
+#define EVIPP_MESSAGE(x) EVIPP_PRAGMA(message (EVIPP_FILE_LINE_STRING(x)))
 
 #endif //GUARD_PREPROCESSOR_MESSAGE_HPP_INCLUDED
 
