@@ -18,7 +18,7 @@ EVIPP_TEST_DEF(1)
 EVIPP_TEST_DEF(2)
 {
 	str = EVIPP_TEXT("test text");
-	ensure( "size( str ) == 9 where str = 'test text'", evipp::string::size(str) );
+	ensure( "size( str ) == 9 where str = 'test text'", evipp::string::size(str) == 9 );
 }
 
 EVIPP_TEST_GROUP_END
