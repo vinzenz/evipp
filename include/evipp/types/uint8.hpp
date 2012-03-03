@@ -4,6 +4,7 @@
 namespace evipp {
 namespace types {
 
+typedef unsigned char uint8;
 
 }}
 
