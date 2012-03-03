@@ -1,3 +1,7 @@
 *~
 *.sw[po]
 *.pyc
+*.opensdf 
+*.sln 
+*.vxproj* 
+*.sdf 

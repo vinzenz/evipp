@@ -3,7 +3,7 @@
 namespace evipp {
 namespace string {
 
-evipp::string::size_type const &
+evipp::string::size_type
 size(
 	evipp::string::type const & object)
 {

@@ -1,12 +1,13 @@
 #ifndef GUARD_EVIPP_STRING_SIZE_HPP_INCLUDED
 #define GUARD_EVIPP_STRING_SIZE_HPP_INCLUDED
 
-#include <evipp/types/size_type.hpp>
+#include <evipp/string/size_type.hpp>
+#include <evipp/string/type.hpp>
 
 namespace evipp {
 namespace string {
 
-evipp::types::size_type const &
+evipp::string::size_type
 size(
 	string::type const & object
 );
