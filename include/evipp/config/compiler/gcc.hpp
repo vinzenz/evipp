@@ -1,7 +1,10 @@
 #ifndef GUARD_CONFIG_COMPILER_GCC_HPP_INCLUDED
 #define GUARD_CONFIG_COMPILER_GCC_HPP_INCLUDED
 
-#error "Compiler has not yet been set up"
+#define EVIPP_COMPILER_GCC
+#define EVIPP_COMPILER_HAS_PRAGMA
+#define EVIPP_PRAGMA(x) _Pragma(#x)
+
 
 #endif //GUARD_CONFIG_COMPILER_GCC_HPP_INCLUDED
 
