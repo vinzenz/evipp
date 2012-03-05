@@ -225,17 +225,13 @@ template<
 	typename CharTraits
 >
 bool
-operator == (
-	type<
-		CharType,
-		CharTraits
-	> const & lhs,
-	type<
-		CharType,
-		CharTraits
-	> const & rhs ) 
+type<
+	CharType, 
+	CharTraits
+>::operator == (	
+	type const & rhs ) const
 {
-	if ( lhs.empty() ) 
+	if ( empty() ) 
 	{
 		// In case rhs is empty both must be empty here
 		return rhs.empty();
@@ -250,12 +246,12 @@ operator == (
 	// Precondition: rhs and lhs are not empty
 	// if lhs or rhs is empty this would cause a crash
 	assert( 
-			!lhs.empty() 
+			!empty() 
 		&& 	!rhs.empty() );
 
 	return CharTraits::compare(
-		lhs.value_->value.data(),
-		lhs.value_->value.size(),
+		value_->value.data(),
+		value_->value.size(),
 		rhs.value_->value.data(),
 		rhs.value_->value.size() ) == 0;
 }
@@ -265,17 +261,13 @@ template<
 	typename CharTraits
 >
 bool
-operator < (
-	type<
-		CharType, 
-		CharTraits
-	> const & lhs,
-	type<
-		CharType,
-		CharTraits
-	> const & rhs )
+type<
+	CharType, 
+	CharTraits
+>::operator < (
+	type const & rhs ) const
 {
-	if ( lhs.empty() )
+	if ( empty() )
 	{
 		// If lhs is empty and rhs is not lhs < rhs == true
 		return !rhs.empty();
@@ -290,12 +282,12 @@ operator < (
 	// Precondition: rhs and lhs are not empty
 	// if lhs or rhs is empty this would cause a crash
 	assert( 
-			!lhs.empty() 
+			!empty() 
 		&& 	!rhs.empty() );
 
 	return CharTraits::compare(
-		lhs.value_->value.data(),
-		lhs.value_->value.size(),
+		value_->value.data(),
+		value_->value.size(),
 		rhs.value_->value.data(),
 		rhs.value_->value.size() ) == 1;
 }

@@ -127,7 +127,7 @@ int
 	return std::wcscmp( lhs, rhs );
 }
 
-inline void test()
+void test()
 {
 	typedef
 	evipp::string::detail::type< 

@@ -12,6 +12,9 @@ namespace evipp {
 namespace string {
 namespace detail {
 
+template< typename T >
+bool operator==( T const &, T const & );
+
 /// @brief Implementation of the basic string class template
 ///
 /// @tparam CharType	type to be used as character element
@@ -136,18 +139,14 @@ public:
 		empty() const;
 
 	/// @brief equality operator
-	friend 
-	bool
-		operator == (
-			type<CharType, CharTraits> const & lhs,
-			type<CharType, CharTraits> const & rhs );
+	bool 
+	operator == (
+			type<CharType, CharTraits> const & rhs ) const;
 
 	/// @brief less than operator
-	friend
 	bool
 		operator < (
-			type<CharType, CharTraits> const & lhs,
-			type<CharType, CharTraits> const & rhs );
+			type<CharType, CharTraits> const & rhs ) const;
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 private:	
