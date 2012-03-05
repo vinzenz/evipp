@@ -14,7 +14,7 @@ namespace detail {
 
 template< 
 	typename CharType,
-	typename CharTraits = evipp::string::detail::traits<CharType>
+	typename CharTraits // = evipp::string::detail::traits<CharType>
 >
 class type 
 	: boost::totally_ordered<
@@ -29,19 +29,18 @@ class type
 	> 
 {
 public:
-	static string::size_type const npos = ~string::size_type(0);
-
 	typedef CharTraits			traits;
 	typedef CharType			char_type;
 	typedef char_type const *	const_pointer;
-
+private:
+	static char_type empty_string[1];
 private:
 	struct data {
 		data( 
 			const_pointer value_, 
 			size_type length );
 
-		std::vector<char_type const> const value;
+		std::vector<char_type> const value;
 		size_type const character_count;
 	};
 	std::shared_ptr<data const> value_;
@@ -114,7 +113,7 @@ private:
 	
 	static
 	auto
-		join( 
+		combine( 
 			data const & lhs, 
 			data const & rhs 
 		) -> std::shared_ptr<data>;

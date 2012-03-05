@@ -11,6 +11,19 @@ template<
 	typename CharType,
 	typename CharTraits
 >
+typename type<
+	CharType, 
+	CharTraits 
+>::char_type 
+type<
+	CharType, 
+	CharTraits 
+>::empty_string[1] = {};
+
+template<
+	typename CharType,
+	typename CharTraits
+>
 type<
 	CharType, 
 	CharTraits 
@@ -199,6 +212,10 @@ type<
 >::c_str() const 
 -> const_pointer
 {
+	if( empty() )
+	{
+			return empty_string;
+	}
 	return value_->value.data();
 }
 
@@ -225,14 +242,14 @@ auto
 type<
 	CharType, 
 	CharTraits
->::join( 
+>::combine( 
 	data const & lhs, 
 	data const & rhs
 ) -> std::shared_ptr<data>
 {
 	return std::make_shared<
 		data>( 
-			traits::join( 
+			traits::combine( 
 				lhs.value, 
 				rhs.value ) );
 }
@@ -255,8 +272,9 @@ type<
 	{
 		return type();
 	}
-	return CharTraits::convert<
-		type>(
+	
+	return CharTraits::template convert< 
+		type >(
 			other );
 }
 
