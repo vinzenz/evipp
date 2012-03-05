@@ -23,6 +23,7 @@
 
 #include <evipp/string/detail/type.hpp>
 #include <evipp/string/detail/type_impl.hpp>
+#include <evipp/algorithm/append.hpp>
 
 struct test_traits 
 {
@@ -36,7 +37,7 @@ struct test_traits
 	>
 	static
 	Container
-		join( 
+		combine( 
 			Container const & lhs,
 			Container const & rhs );
 
@@ -76,7 +77,7 @@ template<
 	typename Container
 >
 Container
-test_traits::join( 
+test_traits::combine( 
 	Container const & lhs, 
 	Container const & rhs )
 {
@@ -95,7 +96,6 @@ template<
 	typename TargetContainer,
 	typename SourceContainer
 >
-static 
 TargetContainer
 	test_traits::convert(
 		SourceContainer const & source )
