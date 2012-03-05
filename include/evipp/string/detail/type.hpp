@@ -6,6 +6,8 @@
 #include <vector>
 #include <memory>
 
+#include <boost/operators.hpp>
+
 namespace evipp {
 namespace string {
 namespace detail {
@@ -14,7 +16,18 @@ template<
 	typename CharType,
 	typename CharTraits = evipp::string::detail::traits<CharType>
 >
-class type {
+class type 
+	: boost::totally_ordered<
+		type<
+			CharType, 
+			CharTraits
+		>, 
+		type<
+			CharType, 
+			CharTraits 
+		> 
+	> 
+{
 public:
 	static string::size_type const npos = ~string::size_type(0);
 
@@ -66,7 +79,34 @@ public:
 		c_str() const;
 	bool 
 		empty() const;
-private:
+
+	friend 
+	bool
+		operator == (
+			type const & lhs,
+			type const & rhs
+		) 
+	{
+		return CharTraits::compare(
+			lhs.value_->value.data(),
+			lhs.value_->value.size(),
+			rhs.value_->value.data(),
+			rhs.value_->value.size() ) == 0;
+	}	
+
+	friend
+	bool
+		operator < (
+			type const & lhs,
+			type const & rhs )
+	{
+		return CharTraits::compare(
+			lhs.value_->value.data(),
+			lhs.value_->value.size(),
+			rhs.value_->value.data(),
+			rhs.value_->value.size() ) == 1;
+	}
+private:	
 	static 
 	size_type 
 		len( 

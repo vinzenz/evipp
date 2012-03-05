@@ -54,6 +54,15 @@ struct test_traits
 		character_count(
 		wchar_t const * value,
 		size_t count );
+
+	static
+	int
+		compare(
+			wchar_t const * lhs,
+			size_t lhs_count,
+			wchar_t const * rhs,
+			size_t rhs_count
+		);
 };
 
 size_t
@@ -102,6 +111,17 @@ size_t
 	return count;
 }
 
+int
+	test_traits::compare(
+		wchar_t const * lhs,
+		size_t lhs_count,
+		wchar_t const * rhs,
+		size_t rhs_count
+	)
+{
+	return std::wcscmp( lhs, rhs );
+}
+
 void test()
 {
 	typedef
@@ -122,4 +142,8 @@ void test()
 	bool empty = test_value.empty();
 	wchar_t const * value = test_value.c_str();
 
+	test_value == test_value;
+	test_value != other_value;
+	test_value > other_value;
+	test_value >= other_value;
 }
