@@ -139,15 +139,15 @@ public:
 	friend 
 	bool
 		operator == (
-			type const & lhs,
-			type const & rhs );
+			type<CharType, CharTraits> const & lhs,
+			type<CharType, CharTraits> const & rhs );
 
 	/// @brief less than operator
 	friend
 	bool
 		operator < (
-			type const & lhs,
-			type const & rhs );
+			type<CharType, CharTraits> const & lhs,
+			type<CharType, CharTraits> const & rhs );
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 private:	
@@ -170,11 +170,11 @@ private:
 	///
 	/// @return combined string in internal representation
 	static
-	auto
+	std::shared_ptr<data>
 		combine( 
 			data const & lhs, 
 			data const & rhs 
-		) -> std::shared_ptr<data>;
+		);
 
 	
 	/// @brief Converts from a source encoding to the target encoding

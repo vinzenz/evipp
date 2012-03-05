@@ -2,6 +2,7 @@
 #define GUARD_STRING_DETAIL_TYPE_IMPL_HPP_INCLUDED
 
 #include <boost/tr1/memory.hpp>
+#include <cassert>
 
 namespace evipp {
 namespace string {
@@ -223,15 +224,35 @@ template<
 	typename CharType,
 	typename CharTraits
 >
-friend 
 bool
-type< 
-	CharType,
-	CharTraits
->::operator == (
-	type const & lhs,
-	type const & rhs ) 
+operator == (
+	type<
+		CharType,
+		CharTraits
+	> const & lhs,
+	type<
+		CharType,
+		CharTraits
+	> const & rhs ) 
 {
+	if ( lhs.empty() ) 
+	{
+		// In case rhs is empty both must be empty here
+		return rhs.empty();
+	}
+
+	// If rhs is empty here they cannot be equal
+	if ( rhs.empty() )
+	{
+		return false;
+	}
+
+	// Precondition: rhs and lhs are not empty
+	// if lhs or rhs is empty this would cause a crash
+	assert( 
+			!lhs.empty() 
+		&& 	!rhs.empty() );
+
 	return CharTraits::compare(
 		lhs.value_->value.data(),
 		lhs.value_->value.size(),
@@ -244,13 +265,34 @@ template<
 	typename CharTraits
 >
 bool
-type<
-	CharType,
-	CharTraits
->::operator < (
-	type const & lhs,
-	type const & rhs )
+operator < (
+	type<
+		CharType, 
+		CharTraits
+	> const & lhs,
+	type<
+		CharType,
+		CharTraits
+	> const & rhs )
 {
+	if ( lhs.empty() )
+	{
+		// If lhs is empty and rhs is not lhs < rhs == true
+		return !rhs.empty();
+	}
+	
+	// If rhs is empty and lhs is not lhs < rhs == false
+	if ( rhs.empty() )
+	{
+		return false;
+	}
+
+	// Precondition: rhs and lhs are not empty
+	// if lhs or rhs is empty this would cause a crash
+	assert( 
+			!lhs.empty() 
+		&& 	!rhs.empty() );
+
 	return CharTraits::compare(
 		lhs.value_->value.data(),
 		lhs.value_->value.size(),
@@ -277,14 +319,19 @@ template<
 	typename CharType,
 	typename CharTraits
 >
-auto
+std::shared_ptr<
+	typename type<
+		CharType,
+		CharTraits
+	>::data
+>
 type<
 	CharType, 
 	CharTraits
 >::combine( 
 	data const & lhs, 
 	data const & rhs
-) -> std::shared_ptr<data>
+)
 {
 	return std::make_shared<
 		data>( 

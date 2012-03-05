@@ -24,6 +24,9 @@ solution "evipp"
       files { "../include/**.hpp", "../source/**.cpp" }
       includedirs { "../include" }
  
+	  configuration { "gmake" }
+         buildoptions { "-std=c++0x" }
+
       configuration "Debug"
          defines { "DEBUG" }
          flags { "Symbols" }
@@ -39,7 +42,10 @@ solution "evipp"
         files { "../unit/**.cpp", "../unit/**.hpp" }
         links { "evipp" }
         includedirs { "../include", "../utils/libs/tut" }
-        libdirs { BOOST_LIB_DIR }
+        libdirs { BOOST_LIB_DIR }		
+
+	  	configuration { "gmake" }
+        	buildoptions { "-std=c++0x" }
 
         --- Auto run the unit tests
         configuration { "windows" }

@@ -21,9 +21,9 @@
 #include <evipp/types/size_type.hpp>
 #include <evipp/types/char_type.hpp>
 
+#include <evipp/algorithm/append.hpp>
 #include <evipp/string/detail/type.hpp>
 #include <evipp/string/detail/type_impl.hpp>
-#include <evipp/algorithm/append.hpp>
 
 struct test_traits 
 {
@@ -66,6 +66,7 @@ struct test_traits
 		);
 };
 
+inline
 size_t
 test_traits::len( 
 	wchar_t const * value )
@@ -76,6 +77,7 @@ test_traits::len(
 template<
 	typename Container
 >
+inline
 Container
 test_traits::combine( 
 	Container const & lhs, 
@@ -96,6 +98,7 @@ template<
 	typename TargetContainer,
 	typename SourceContainer
 >
+inline
 TargetContainer
 	test_traits::convert(
 		SourceContainer const & source )
@@ -103,6 +106,7 @@ TargetContainer
 	return TargetContainer();
 }
 
+inline
 size_t
 	test_traits::character_count(
 	wchar_t const *,
@@ -111,6 +115,7 @@ size_t
 	return count;
 }
 
+inline
 int
 	test_traits::compare(
 		wchar_t const * lhs,
@@ -122,7 +127,7 @@ int
 	return std::wcscmp( lhs, rhs );
 }
 
-void test()
+inline void test()
 {
 	typedef
 	evipp::string::detail::type< 
