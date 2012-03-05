@@ -135,32 +135,20 @@ public:
 	bool 
 		empty() const;
 
+	/// @brief equality operator
 	friend 
 	bool
 		operator == (
 			type const & lhs,
-			type const & rhs
-		) 
-	{
-		return CharTraits::compare(
-			lhs.value_->value.data(),
-			lhs.value_->value.size(),
-			rhs.value_->value.data(),
-			rhs.value_->value.size() ) == 0;
-	}	
+			type const & rhs );
 
+	/// @brief less than operator
 	friend
 	bool
 		operator < (
 			type const & lhs,
-			type const & rhs )
-	{
-		return CharTraits::compare(
-			lhs.value_->value.data(),
-			lhs.value_->value.size(),
-			rhs.value_->value.data(),
-			rhs.value_->value.size() ) == 1;
-	}
+			type const & rhs );
+
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 private:	
 	

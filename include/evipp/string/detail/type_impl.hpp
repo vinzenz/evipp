@@ -223,6 +223,45 @@ template<
 	typename CharType,
 	typename CharTraits
 >
+friend 
+bool
+type< 
+	CharType,
+	CharTraits
+>::operator == (
+	type const & lhs,
+	type const & rhs ) 
+{
+	return CharTraits::compare(
+		lhs.value_->value.data(),
+		lhs.value_->value.size(),
+		rhs.value_->value.data(),
+		rhs.value_->value.size() ) == 0;
+}
+
+template<
+	typename CharType,
+	typename CharTraits
+>
+bool
+type<
+	CharType,
+	CharTraits
+>::operator < (
+	type const & lhs,
+	type const & rhs )
+{
+	return CharTraits::compare(
+		lhs.value_->value.data(),
+		lhs.value_->value.size(),
+		rhs.value_->value.data(),
+		rhs.value_->value.size() ) == 1;
+}
+	
+template<
+	typename CharType,
+	typename CharTraits
+>
 size_type
 type<
 	CharType, 
