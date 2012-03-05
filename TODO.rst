@@ -18,6 +18,7 @@ Not all items of the following list are going to be done, but it might be conven
       - client
       - server?
   - ftp
+  - dhcp
   - mail
       - imap
           - client
