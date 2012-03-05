@@ -16,8 +16,11 @@ namespace tut
 test_runner_singleton runner;
 }
 
+void test();
+
 int main(int argc, const char* argv[])
 {
+	test();
     reporter visi;
 
     if (argc < 2 || argc > 3)
