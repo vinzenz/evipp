@@ -54,7 +54,7 @@ private:
 			const_pointer value_, 
 			size_type length );
 
-		std::vector<char_type> const value;
+		std::vector<char_type> value;
 		size_type const character_count;
 
 		void check_null_extend();

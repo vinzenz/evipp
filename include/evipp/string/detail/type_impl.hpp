@@ -57,7 +57,7 @@ type<
 	{
 		if( value.back() != char_type(0) )
 		{
-			this->value.insert( value.end(), 0 );
+			value.push_back( 0 );
 		}
 	}
 }

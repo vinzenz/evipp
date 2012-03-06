@@ -7,7 +7,7 @@ defaultaction('windows', 'vs2010')
 
 
 --- Find boost
-local BOOST_LIB_DIR = os.findlib("boost_syste")
+local BOOST_LIB_DIR = os.findlib("boost_system")
 
 if BOOST_LIB_DIR == nil then
     print( "\nWARNING: Couldn't find required boost libraries directory.\n" )
