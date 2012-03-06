@@ -53,13 +53,7 @@ type<
 	CharTraits 
 >::data::check_null_extend()
 {
-	if( !value.empty() )
-	{
-		if( value.back() != char_type(0) )
-		{
-			value.push_back( 0 );
-		}
-	}
+	value.push_back( 0 );
 }
 
 template<
@@ -204,7 +198,16 @@ type<
 	{
 		return 0;
 	}
-	return value_->value.size() - 1;
+
+	// This must be minimum 1
+	assert( value_->value.size() > 0 );
+
+	if( value_->value.size() )
+	{
+		return value_->value.size() - 1;
+	}
+
+	return 0;
 }
 
 template< 

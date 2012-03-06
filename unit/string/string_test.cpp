@@ -10,7 +10,7 @@ struct string_data {
 
 EVIPP_TEST_GROUP_DEF(string_data, "evipp::string")
 
-EVIPP_TEST_DEF(1)
+	EVIPP_TEST_DEF(1)
 {
 	ensure( "size( empty_string ) == 0", evipp::string::size( str ) == 0 );
 }

@@ -11,9 +11,9 @@ namespace detail {
 
 struct traits 
 {
-	typedef evipp::string::utf8::char_type char_type;
-	typedef char_type const * const_pointer;
-	typedef evipp::string::utf8::size_type size_type;
+	typedef evipp::string::utf8::char_type	char_type;
+	typedef char_type const *				const_pointer;
+	typedef evipp::string::utf8::size_type	size_type;
 
 	static
 	size_type
