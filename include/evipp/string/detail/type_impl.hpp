@@ -181,7 +181,10 @@ type<
 >::operator=(
 	const_pointer value )
 {
-	return operator=( std::move(type(value) ) );
+	return operator=( 
+		std::move( 
+			type( 
+				value ) ) );
 }
 
 
