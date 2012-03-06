@@ -402,4 +402,3 @@ type<
 }}}
 
 #endif //GUARD_STRING_DETAIL_TYPE_IMPL_HPP_INCLUDED
-
