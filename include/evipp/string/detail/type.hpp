@@ -112,6 +112,14 @@ public:
 		operator=(
 			type o);
 	
+	/// @brief assignment operator
+	///
+	/// @param value	string to be assigned
+	///
+	/// @return	 *this
+	type &  
+		operator=(
+			const_pointer value );
 	
 	/// @brief returns the number of characters in the string (Note: it's not necessarily the count of elements)
 	///

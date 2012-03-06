@@ -2,8 +2,6 @@
 #include <evipp/string/utf8/type.hpp>
 #include <evipp/string/utf8/type_impl.hpp>
 
-#define EVIPP_TEXT(TXT) TXT
-
 struct utf8_string_data {
 	evipp::string::utf8::type str;
 };
@@ -26,6 +24,12 @@ EVIPP_TEST_DEF(3)
 {
 	str = evipp::string::utf8::type("");
 	ensure( "empty after assigning evipp::string(\"\")", str.empty() );
+}
+
+EVIPP_TEST_DEF(4)
+{
+	str = "test text";
+	ensure( "str.size() == 9 where str = 'test text'", str.size() == 9 );
 }
 
 EVIPP_TEST_GROUP_END

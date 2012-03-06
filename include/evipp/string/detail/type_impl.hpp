@@ -171,6 +171,24 @@ template<
 	typename CharType,
 	typename CharTraits
 >
+type< 
+	CharType, 
+	CharTraits 
+> &
+type< 
+	CharType, 
+	CharTraits 
+>::operator=(
+	const_pointer value )
+{
+	return operator=( std::move(type(value) ) );
+}
+
+
+template<
+	typename CharType,
+	typename CharTraits
+>
 size_type 
 type<
 	CharType, 
