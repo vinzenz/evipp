@@ -56,6 +56,8 @@ private:
 
 		std::vector<char_type> const value;
 		size_type const character_count;
+
+		void check_null_extend();
 	};
 	std::shared_ptr<data const> value_;
 #endif // DOXYGEN_SHOULD_SKIP_THIS

@@ -40,8 +40,27 @@ type<
 		value.data(), 
 		value.size() ) )
 {
+	check_null_extend();
 }
 
+template<
+	typename CharType,
+	typename CharTraits
+>
+void
+type<
+	CharType, 
+	CharTraits 
+>::data::check_null_extend()
+{
+	if( !value.empty() )
+	{
+		if( value.back() != char_type(0) )
+		{
+			this->value.insert( value.end(), 0 );
+		}
+	}
+}
 
 template<
 	typename CharType,
