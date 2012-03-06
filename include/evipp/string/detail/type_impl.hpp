@@ -204,7 +204,7 @@ type<
 	{
 		return 0;
 	}
-	return value_->value.size();
+	return value_->value.size() - 1;
 }
 
 template< 

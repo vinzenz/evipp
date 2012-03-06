@@ -21,5 +21,11 @@ EVIPP_TEST_DEF(2)
 	ensure( "size( str ) == 9 where str = 'test text'", evipp::string::size(str) == 9 );
 }
 
+EVIPP_TEST_DEF(3)
+{
+	str = evipp::string::type("");
+	ensure( "empty after assigning evipp::string(\"\")", str.empty() );
+}
+
 EVIPP_TEST_GROUP_END
 

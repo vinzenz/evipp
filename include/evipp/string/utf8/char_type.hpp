@@ -7,7 +7,7 @@ namespace evipp {
 namespace string {
 namespace utf8 {
 
-typedef evipp::types::int8 utf8_char;
+typedef evipp::types::int8 char_type;
 
 }}}
 
