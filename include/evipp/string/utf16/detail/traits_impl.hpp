@@ -73,7 +73,6 @@ template<
 	typename TargetContainer,
 	typename SourceContainer
 >
-static
 TargetContainer
 traits::convert(
 	SourceContainer const & source )
