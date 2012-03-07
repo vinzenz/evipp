@@ -3,6 +3,7 @@
 
 #include <evipp/string/utf16/char_type.hpp>
 #include <evipp/string/utf16/char_type.hpp>
+#include <evipp/string/utf16/size_type.hpp>
 
 namespace evipp {
 namespace string {
