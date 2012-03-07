@@ -31,6 +31,32 @@ traits::combine(
 	return std::move( result );
 }
 
+template< 
+	typename result_iterator,
+	typename u32bit_iterator
+>
+result_iterator
+utf32to16(
+	u32bit_iterator start,
+	u32bit_iterator end,
+	result_iterator result )
+{
+	while( start != end )
+	{
+		utf32::char_type cp = *start;
+		if (cp > 0xffff) 
+		{ //make a surrogate pair
+			*result++ = static_cast<utf16::char_type>((cp >> 10)   + ::utf8::internal::LEAD_OFFSET);
+			*result++ = static_cast<utf16::char_type>((cp & 0x3ff) + ::utf8::internal::TRAIL_SURROGATE_MIN);
+		}
+        else
+		{
+			*result++ = static_cast<utf16::char_type>(cp);
+		}		
+	}
+	return result;
+}
+
 template<
 	typename TargetContainer 
 >
@@ -41,7 +67,7 @@ to_utf16(
 {
 	TargetContainer container;
 
-	::utf8::utf32to16(
+	utf32to16(
 		begin,
 		end,
 		std::back_inserter(

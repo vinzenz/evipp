@@ -31,6 +31,48 @@ traits::combine(
 	return std::move( result );
 }
 
+template< 
+	typename result_iterator,
+	typename u16bit_iterator
+>
+result_iterator
+utf16to32(
+	u16bit_iterator start,
+	u16bit_iterator end,
+	result_iterator result )
+{
+	while( start != end )
+	{
+		utf32::char_type cp = ::utf8::internal::mask16(*start++);
+		if( ::utf8::internal::is_lead_surrogate(cp ) )
+		{
+			if( start != end )
+			{
+				utf32::char_type trail_surrogate = ::utf8::internal::mask16(*start++);
+				if( ::utf8::internal::is_trail_surrogate( trail_surrogate ) )
+				{
+					cp = (cp << 10) + trail_surrogate + ::utf8::internal::SURROGATE_OFFSET;					
+				}
+				else
+				{
+					throw ::utf8::invalid_utf16( static_cast< ::utf8::uint16_t >(trail_surrogate) );
+				}				
+			}
+			else
+			{
+					throw ::utf8::invalid_utf16( static_cast< ::utf8::uint16_t >(cp) );
+			}
+		}
+		else if( ::utf8::internal::is_trail_surrogate( cp ) )
+		{
+			throw ::utf8::invalid_utf16( static_cast< ::utf8::uint16_t >(cp) );
+		}
+
+		*result++ = cp;
+	}
+	return result;
+}
+
 template<
 	typename TargetContainer 
 >
@@ -41,7 +83,7 @@ to_utf32(
 {
 	TargetContainer container;
 
-	::utf8::utf16to32(
+	utf16to32(
 		begin,
 		end,
 		std::back_inserter(

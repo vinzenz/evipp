@@ -7,7 +7,8 @@ namespace evipp {
 namespace string {
 namespace utf32 {
 
-typedef evipp::types::uint32 char_type;
+// typedef evipp::types::uint32 char_type;
+typedef char32_t char_type;
 
 }}}
 
