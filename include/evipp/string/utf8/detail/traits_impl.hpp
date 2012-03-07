@@ -5,7 +5,7 @@
 #include <evipp/string/utf16/char_type.hpp>
 #include <evipp/string/utf32/char_type.hpp>
 #include <evipp/algorithm/append.hpp>
-#include "../../../../../utils/libs/utf8/source/utf8.h"
+#include <utf8.h>
 
 #include <iterator>
 

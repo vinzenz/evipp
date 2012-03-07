@@ -1,8 +1,12 @@
 #ifndef GUARD_STRING_UTF16_DETAIL_TRAITS_IMPL_HPP_INCLUDED
 #define GUARD_STRING_UTF16_DETAIL_TRAITS_IMPL_HPP_INCLUDED
 
+#include <evipp/string/utf16/detail/traits.hpp>
 #include <evipp/string/utf8/char_type.hpp>
 #include <evipp/string/utf32/char_type.hpp>
+#include <evipp/algorithm/append.hpp>
+
+#include <utf8.h>
 
 namespace evipp {
 namespace string {

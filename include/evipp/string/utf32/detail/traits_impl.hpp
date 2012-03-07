@@ -3,6 +3,10 @@
 
 #include <evipp/string/utf8/char_type.hpp>
 #include <evipp/string/utf16/char_type.hpp>
+#include <evipp/string/utf32/detail/traits.hpp>
+#include <evipp/algorithm/append.hpp>
+
+#include <utf8.h>
 
 namespace evipp {
 namespace string {
