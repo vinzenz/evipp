@@ -22,7 +22,7 @@ solution "evipp"
       kind "StaticLib"
       language "C++"
       files { "../include/**.hpp", "../source/**.cpp" }
-      includedirs { "../include" }
+      includedirs { "../include", "../utils/libs/utf8/source" }
  
 	  configuration { "gmake" }
          buildoptions { "-std=c++0x" }
@@ -41,7 +41,7 @@ solution "evipp"
         language "C++"
         files { "../unit/**.cpp", "../unit/**.hpp" }
         links { "evipp" }
-        includedirs { "../include", "../utils/libs/tut" }
+        includedirs { "../include", "../utils/libs/tut", "../utils/libs/utf8/source" }
         libdirs { BOOST_LIB_DIR }		
 
 	  	configuration { "gmake" }
