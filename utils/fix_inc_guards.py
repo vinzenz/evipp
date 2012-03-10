@@ -3,13 +3,14 @@
 import os
 
 def fix_file(fpath):
+	print "Processing:",fpath
 	content = read_file(fpath)
 	content = adjust_content(content)
 	write_file(fpath, content)
 
 def read_file(fpath):
 	f = open(fpath, 'r')
-	c = c.read()
+	c = f.read()
 	f.close()
 	return c
 
@@ -23,25 +24,25 @@ def adjust_content(content):
 	# seems pointless on the first look, however we don't have to check if GUARD_ is there alone
 	# or if GUARD_EVIPP is there
 	# We always want GUARD_EVIPP
-	return content.replace(' GUARD_EVIPP',' GUARD_').replace(' GUARD_', ' GUARD_EVIPP')
+	return content.replace(' GUARD_EVIPP',' GUARD_').replace(' GUARD_', ' GUARD_EVIPP_')
 
-def goto_includes():
-	while not os.path.exists( os.path.combine( os.getcwd(), '.git' ) ):
+def goto_include():	
+	while not os.path.exists( os.path.join( os.getcwd(), '.git' ) ):
 		os.chdir('..')
-	os.chdir('includes')
+	os.chdir('include')
 
 def check_dir(name):
 	os.chdir(name)
 	for f in os.listdir('.'):
-		fpath = os.path.combine(os.getcwd(), f ) 
+		fpath = os.path.join(os.getcwd(), f ) 
 		if os.path.isdir(fpath):
 			check_dir(f)
 		elif os.path.isfile(fpath):
 			fix_file(fpath)
-	os.chdir('')
+	os.chdir('..')
 
 def fix_headers():
-	goto_includes()
-	os.listdir('evipp')
+	goto_include()
+	check_dir('evipp')
 
 fix_headers()
