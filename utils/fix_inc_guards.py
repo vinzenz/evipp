@@ -24,7 +24,7 @@ def adjust_content(content):
 	# seems pointless on the first look, however we don't have to check if GUARD_ is there alone
 	# or if GUARD_EVIPP is there
 	# We always want GUARD_EVIPP
-	return content.replace(' GUARD_EVIPP',' GUARD_').replace(' GUARD_', ' GUARD_EVIPP_')
+	return content.replace('GUARD_EVIPP_','GUARD_').replace('GUARD_', 'GUARD_EVIPP_')
 
 def goto_include():	
 	while not os.path.exists( os.path.join( os.getcwd(), '.git' ) ):
