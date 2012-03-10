@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import os, sys
+import os, sys, re
 
 from utils import get_template, find_git, create_target_directory, build_target_file_path
 
@@ -19,7 +19,7 @@ def _build_namespace_begin(sections):
 	namespaces = []
 	for section in sections[:-1]:
 		namespaces.append( "namespace %s {" % section )
-	return '\n'.join(namespaces)
+	return os.linesep.join(namespaces)
 
 def _build_namespace_end(sections):
 	return "}" * (len(sections) - 1)
@@ -27,7 +27,7 @@ def _build_namespace_end(sections):
 
 def _format_file(sections):
 	tplf = open( get_template('header'), 'r' )
-	tpl = tplf.read()
+	tpl = os.linesep.join( re.split(r'\r\n|\r|\n', tplf.read() ) )
 	tplf.close()
 
 	tpl = tpl.replace('%GUARD_NAME%', _build_include_guard(sections) )
