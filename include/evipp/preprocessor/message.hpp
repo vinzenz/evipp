@@ -1,5 +1,5 @@
-#ifndef GUARD_PREPROCESSOR_MESSAGE_HPP_INCLUDED
-#define GUARD_PREPROCESSOR_MESSAGE_HPP_INCLUDED
+#ifndef GUARD_EVIPP_PREPROCESSOR_MESSAGE_HPP_INCLUDED
+#define GUARD_EVIPP_PREPROCESSOR_MESSAGE_HPP_INCLUDED
 
 #include <evipp/preprocessor/pragma.hpp>
 #include <evipp/preprocessor/stringize.hpp>

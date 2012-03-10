@@ -1,5 +1,5 @@
-#ifndef GUARD_PREPROCESSOR_STRINGIZE_HPP_INCLUDED
-#define GUARD_PREPROCESSOR_STRINGIZE_HPP_INCLUDED
+#ifndef GUARD_EVIPP_PREPROCESSOR_STRINGIZE_HPP_INCLUDED
+#define GUARD_EVIPP_PREPROCESSOR_STRINGIZE_HPP_INCLUDED
 
 #include <boost/preprocessor/stringize.hpp>
 #include <boost/preprocessor/wstringize.hpp>
