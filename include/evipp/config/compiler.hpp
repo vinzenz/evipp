@@ -1,5 +1,5 @@
-#ifndef GUARD_EVIPP_CONFIG_COMPILER_HPP_INCLUDED
-#define GUARD_EVIPP_CONFIG_COMPILER_HPP_INCLUDED
+#ifndef GUARD_CONFIG_COMPILER_HPP_INCLUDED
+#define GUARD_CONFIG_COMPILER_HPP_INCLUDED
 
 #if defined(__clang__)
 #	include <evipp/config/compiler/clang.hpp>

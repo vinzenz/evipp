@@ -1,5 +1,5 @@
-#ifndef GUARD_EVIPP_STRING_UTF32_TYPE_HPP_INCLUDED
-#define GUARD_EVIPP_STRING_UTF32_TYPE_HPP_INCLUDED
+#ifndef GUARD_STRING_UTF32_TYPE_HPP_INCLUDED
+#define GUARD_STRING_UTF32_TYPE_HPP_INCLUDED
 
 #include <evipp/string/detail/type.hpp>
 #include <evipp/string/utf32/detail/traits.hpp>
