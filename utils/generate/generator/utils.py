@@ -14,7 +14,7 @@ def _create_target_directory(sections, basedir):
 	for section in sections[:-1]:
 		base_path = os.path.join( base_path, section )
 		if not os.path.exists( base_path ):
-			os.mkdir( base_path, 0644 )
+			os.mkdir( base_path, 0744 )
 	return base_path	
 
 
