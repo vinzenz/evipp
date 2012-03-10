@@ -1,13 +1,18 @@
 #ifndef GUARD_CONFIG_COMPILER_DETAIL_STRING_HPP_INCLUDED
 #define GUARD_CONFIG_COMPILER_DETAIL_STRING_HPP_INCLUDED
 
-namespace evipp {
-namespace config {
-namespace compiler {
-namespace detail {
+#if defined(EVIPP_UNICODE_UTF16)
+#	define EVIPP_TEXT(TXT) EVIPP_UTF16(TXT)
+#elif defined(EVIPP_UNICODE_UTF32)
+#	define EVIPP_TEXT(TXT) EVIPP_UTF32(TXT)
+#elif defined(EVIPP_UNICODE_WCHART)
+#	define EVIPP_TEXT(TXT) L##TXT
+#else
+#	define EVIPP_TEXT(TXT) TXT
+#endif
 
-
-}}}}
+#define EVIPP_UTF16(TXT) u##TXT
+#define EVIPP_UTF32(TXT) U##TXT
 
 #endif //GUARD_CONFIG_COMPILER_DETAIL_STRING_HPP_INCLUDED
 
