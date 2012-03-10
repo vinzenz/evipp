@@ -1,5 +1,5 @@
-#ifndef GUARD_STRING_UTF16_TYPE_HPP_INCLUDED
-#define GUARD_STRING_UTF16_TYPE_HPP_INCLUDED
+#ifndef GUARD_EVIPP_STRING_UTF16_TYPE_HPP_INCLUDED
+#define GUARD_EVIPP_STRING_UTF16_TYPE_HPP_INCLUDED
 
 #include <evipp/string/detail/type.hpp>
 #include <evipp/string/utf16/detail/traits.hpp>
@@ -15,5 +15,5 @@ typedef evipp::string::detail::type<
 
 }}}
 
-#endif //GUARD_STRING_UTF16_TYPE_HPP_INCLUDED
+#endif //GUARD_EVIPP_STRING_UTF16_TYPE_HPP_INCLUDED
 

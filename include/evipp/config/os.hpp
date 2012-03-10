@@ -1,5 +1,5 @@
-#ifndef GUARD_CONFIG_OS_HPP_INCLUDED
-#define GUARD_CONFIG_OS_HPP_INCLUDED
+#ifndef GUARD_EVIPP_CONFIG_OS_HPP_INCLUDED
+#define GUARD_EVIPP_CONFIG_OS_HPP_INCLUDED
 
 #if \
 		defined(linux) \
@@ -29,5 +29,5 @@
 #	error	"Please configure your operating system"
 #endif
 
-#endif //GUARD_CONFIG_OS_HPP_INCLUDED
+#endif //GUARD_EVIPP_CONFIG_OS_HPP_INCLUDED
 

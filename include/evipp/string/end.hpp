@@ -1,5 +1,5 @@
-#ifndef GUARD_STRING_END_HPP_INCLUDED
-#define GUARD_STRING_END_HPP_INCLUDED
+#ifndef GUARD_EVIPP_STRING_END_HPP_INCLUDED
+#define GUARD_EVIPP_STRING_END_HPP_INCLUDED
 
 #include <evipp/string/type.hpp>
 
@@ -22,5 +22,5 @@ end(type const & str)
 
 }}
 
-#endif //GUARD_STRING_END_HPP_INCLUDED
+#endif //GUARD_EVIPP_STRING_END_HPP_INCLUDED
 
