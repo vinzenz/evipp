@@ -3,6 +3,9 @@
 
 #include <evipp/config/compiler/detail/text.hpp>
 
+#undef EVIPP_UTF16
+#undef EVIPP_UTF32
+
 #define EVIPP_UTF16(TXT) L##TXT
 #define EVIPP_UTF32(TXT) 
 
