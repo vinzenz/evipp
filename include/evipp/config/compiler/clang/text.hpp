@@ -1,13 +1,10 @@
 #ifndef GUARD_EVIPP_CONFIG_COMPILER_CLANG_TEXT_HPP_INCLUDED
 #define GUARD_EVIPP_CONFIG_COMPILER_CLANG_TEXT_HPP_INCLUDED
 
-namespace evipp {
-namespace config {
-namespace compiler {
-namespace clang {
+#include <evipp/config/compiler/detail/text.hpp>
 
-
-}}}}
+#define EVIPP_UTF16(TXT) u##TXT
+#define EVIPP_UTF32(TXT) U##TXT
 
 #endif //GUARD_EVIPP_CONFIG_COMPILER_CLANG_TEXT_HPP_INCLUDED
 
