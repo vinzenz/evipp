@@ -6,6 +6,15 @@ namespace config {
 namespace compiler {
 namespace clang {
 
+#if defined(EVIPP_UNICODE_UTF16)
+typedef char16_t 	char_type;
+#elif defined(EVIPP_UNICODE_UTF32)
+typedef char32_t 	char_type
+#elif defined(EVIPP_UNICODE_WCHART)
+typedef wchar_t 	char_type;
+#else
+typedef char 		char_type;
+#endif
 
 }}}}
 

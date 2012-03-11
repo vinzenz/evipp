@@ -1,13 +1,10 @@
 #ifndef GUARD_EVIPP_CONFIG_COMPILER_MSVC_TEXT_HPP_INCLUDED
 #define GUARD_EVIPP_CONFIG_COMPILER_MSVC_TEXT_HPP_INCLUDED
 
-namespace evipp {
-namespace config {
-namespace compiler {
-namespace msvc {
+#include <evipp/config/compiler/detail/text.hpp>
 
-
-}}}}
+#define EVIPP_UTF16(TXT) L##TXT
+#define EVIPP_UTF32(TXT) 
 
 #endif //GUARD_EVIPP_CONFIG_COMPILER_MSVC_TEXT_HPP_INCLUDED
 
