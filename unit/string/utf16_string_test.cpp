@@ -16,19 +16,19 @@ EVIPP_TEST_DEF(1)
 
 EVIPP_TEST_DEF(2)
 {
-	str = evipp::string::utf16::type(u"test text");
+	str = evipp::string::utf16::type( EVIPP_UTF16("test text") );
 	ensure( "str.size() == 9 where str = 'test text'", str.size() == 9 );
 }
 
 EVIPP_TEST_DEF(3)
 {
-	str = evipp::string::utf16::type(u"");
+	str = evipp::string::utf16::type( EVIPP_UTF16("") );
 	ensure( "empty after assigning evipp::string(\"\")", str.empty() );
 }
 
 EVIPP_TEST_DEF(4)
 {
-	str = u"test text";
+	str = EVIPP_UTF16("test text");
 	ensure( "str.size() == 9 where str = 'test text'", str.size() == 9 );
 }
 

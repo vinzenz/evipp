@@ -2,8 +2,6 @@
 #include <evipp/string/type.hpp>
 #include <evipp/string/size.hpp>
 
-#define EVIPP_TEXT(TXT) TXT
-
 struct string_data {
 	evipp::string::type str;
 };
@@ -23,7 +21,7 @@ EVIPP_TEST_DEF(2)
 
 EVIPP_TEST_DEF(3)
 {
-	str = evipp::string::type("");
+	str = evipp::string::type( EVIPP_TEXT("") );
 	ensure( "empty after assigning evipp::string(\"\")", str.empty() );
 }
 
