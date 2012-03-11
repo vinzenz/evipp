@@ -8,6 +8,10 @@
 #define EVIPP_COMPILER_HAS_PRAGMA
 #define EVIPP_PRAGMA(x) _Pragma(#x)
 
+#define EVIPP_HAVE_UTF16_LITERALS
+#define EVIPP_HAVE_UTF32_LITERALS
+#define EVIPP_HAVE_UTF8_LITERALS
+
 namespace evipp {
 namespace config {
 namespace compiler {
